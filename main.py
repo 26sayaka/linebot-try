@@ -22,16 +22,16 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 def hands_to_int(userhand):
 
-    if event.message.text == "グー"
+    if userhand == "グー":
         return 0
 
-    elif event.message.text == "チョキ"
+    elif userhand == "チョキ":
 	return 1
 
-    elif event.message.text  == "パー"
+    elif userhand == "パー":
 	return 2
 
-    else
+    else:
 	 return -1
  
 
