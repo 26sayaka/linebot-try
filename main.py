@@ -29,7 +29,7 @@ def hands_to_int(userhand):
         return 1
 
     elif userhand == "パー":
-	return 2
+        return 2
 
     else:
         return -1
