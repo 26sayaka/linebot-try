@@ -10,6 +10,9 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
+import random
+
+
 
 app = Flask(__name__)
 
