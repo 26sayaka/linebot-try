@@ -34,6 +34,11 @@ def hands_to_int(userhand):
     else:
         return -1
 
+def select_bothand():
+
+    return random.randint(0,2)
+
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -56,7 +61,7 @@ def callback():
 def handle_message(event):
     # message = event.message.text
   
-    message = hands_to_int(event.message.text)
+    # message = hands_to_int(event.message.text)
 
     line_bot_api.reply_message(
         event.reply_token,
