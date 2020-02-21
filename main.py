@@ -32,7 +32,7 @@ def hands_to_int(userhand):
 	return 2
 
     else:
-	 return -1
+        return -1
  
 
 
