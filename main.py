@@ -26,15 +26,13 @@ def hands_to_int(userhand):
         return 0
 
     elif userhand == "チョキ":
-	return 1
+        return 1
 
     elif userhand == "パー":
 	return 2
 
     else:
         return -1
- 
-
 
 @app.route("/callback", methods=['POST'])
 def callback():
