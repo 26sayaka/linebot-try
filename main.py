@@ -49,8 +49,6 @@ def select_bothand():
 
 def judge(userhand,bothand):
 
-    message = 2222222
-
     if userhand == -1:
         message = "グー、チョキ、パーをカタカナで入力してちょ。"
 
@@ -98,6 +96,8 @@ def handle_message(event):
     # message = hands_to_int(event.message.text)
 
    # message = select_bothand()
+
+    message = judge(hands_to_int(event.message.text), select_bothand())
 
     line_bot_api.reply_message(
         event.reply_token,
