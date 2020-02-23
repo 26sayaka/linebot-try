@@ -25,20 +25,22 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-def hands_to_int(userhand):
 
-    if userhand == "グー":
-        return 0
-    elif userhand == "チョキ":
-        return 1
+def my_index(l, x):
+  
+    if x in l:
+        return l.index(x)
 
-    elif userhand == "パー":
-        return 2
-
-    elif:
+    else:
         return -1
 
+
 hands = ["グー","チョキ","パー"]
+
+
+def hands_to_int(userhand):
+
+    return my_index(hands, userhand)
 
 
 def select_bothand():
