@@ -64,7 +64,7 @@ def judge(userhand,bothand):
         elif status == 1:
             message += "あ、ごめんね。勝っちゃった。"
 
-        else status == 2:
+        elif status == 2:
             message += "俺の負けだよ…"
 
     return message
