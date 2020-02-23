@@ -9,6 +9,8 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
+
 import os
 import random
 
@@ -27,7 +29,6 @@ def hands_to_int(userhand):
 
     if userhand == "グー":
         return 0
-
     elif userhand == "チョキ":
         return 1
 
@@ -37,9 +38,35 @@ def hands_to_int(userhand):
     else:
         return -1
 
+hands = ["グー","チョキ","パー"]
+
+
 def select_bothand():
 
     return random.randint(0,2)
+
+
+
+def judge(userhand,bothand):
+
+    if userhand == -1:
+        message = "グー、チョキ、パーをカタカナで入力してちょ。"
+
+    else:
+        status = (userhand - bothand + 3) % 3
+        message = "私は" + hands[bothand] + "を出しました。"\n
+
+        if status == 0:
+            message += "同じ手だ。仲良しかよ"
+
+        elif status == 1:
+            message += "あ、ごめんね。勝っちゃった。"
+
+        else status == 2:
+            message += "俺の負けだよ…"
+
+    return message
+
 
 
 @app.route("/callback", methods=['POST'])
@@ -61,12 +88,14 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
+
+
 def handle_message(event):
     # message = event.message.text
   
     # message = hands_to_int(event.message.text)
 
-    message = select_bothand()
+   # message = select_bothand()
 
     line_bot_api.reply_message(
         event.reply_token,
