@@ -47,6 +47,8 @@ def select_bothand():
     return random.randint(0,2)
 
 
+message = 100
+
 def judge(userhand,bothand):
 
     if userhand == -1:
