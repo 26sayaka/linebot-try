@@ -12,9 +12,6 @@ from linebot.models import (
 
 
 import os
-import random
-
-
 
 app = Flask(__name__)
 
@@ -24,6 +21,8 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+import random
 
 
 def my_index(l, x):
@@ -49,8 +48,6 @@ def select_bothand():
 
 
 def judge(userhand,bothand):
-
-    message = 100:
 
     if userhand == -1:
         message = "グー、チョキ、パーをカタカナで入力してちょ。"
