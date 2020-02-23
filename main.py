@@ -48,6 +48,8 @@ def select_bothand():
     return random.randint(0,2)
 
 
+message = 0
+
 
 def judge(userhand,bothand):
 
