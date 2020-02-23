@@ -35,7 +35,7 @@ def hands_to_int(userhand):
     elif userhand == "パー":
         return 2
 
-    else:
+    elif:
         return -1
 
 hands = ["グー","チョキ","パー"]
