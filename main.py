@@ -47,9 +47,9 @@ def select_bothand():
     return random.randint(0,2)
 
 
-message = 100
-
 def judge(userhand,bothand):
+
+    message = 2222222
 
     if userhand == -1:
         message = "グー、チョキ、パーをカタカナで入力してちょ。"
