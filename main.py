@@ -54,7 +54,7 @@ def judge(userhand,bothand):
 
     else:
         status = (userhand - bothand + 3) % 3
-        message = "私は" + hands[bothand] + "を出しました。"/n
+        message = "私は" + hands[bothand] + "を出しました。"\n
 
         if status == 0:
             message += "同じ手だ。仲良しかよ"
