@@ -63,7 +63,13 @@ def judge(userhand,bothand):
             message += "あ、ごめんね。勝っちゃった。"
 
         elif status == 2:
-            message += "俺の負けだよ…"
+            #message += "俺の負けだよ…"
+
+            message = ImageSendMessage(
+                original_comtent_url = "https://chawanmushi.com/static/images/1beautiful.jpg",
+                preview_image_url = "https://chawanmushi.com/static/images/1beautful.jpg"
+)
+
 
     return message
 
@@ -101,7 +107,8 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=message))
+        message
+    )
 
 
 if __name__ == "__main__":
