@@ -57,10 +57,10 @@ def judge(userhand,bothand):
         message = "私は" + hands[bothand] + "を出しました。\n"
 
         if status == 0:
-            message += "同じ手だ。仲良しかよ"
+            message == TextSendMessage(text = "同じ手だ。仲良しかよ")
 
         elif status == 1:
-            message += "あ、ごめんね。勝っちゃった。"
+            message == TextSendMessage(text = "あ、ごめんね。勝っちゃった。")
 
         elif status == 2:
             #message += "俺の負けだよ…"
