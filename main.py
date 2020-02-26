@@ -38,8 +38,6 @@ except LineBotApiError as e:
 
 
 
-
-
 def my_index(l, x):
   
     if x in l:
