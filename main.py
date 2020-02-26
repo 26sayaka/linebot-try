@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage
 )
 
 
@@ -66,8 +66,8 @@ def judge(userhand,bothand):
             #message += "俺の負けだよ…"
 
             message = ImageSendMessage(
-                original_comtent_url = "https://chawanmushi.com/static/images/1beautiful.jpg",
-                preview_image_url = "https://chawanmushi.com/static/images/1beautful.jpg"
+                original_comtent_url = "https://chawanmushi.herokuapp.com/static/images/1beautiful.jpg",
+                preview_image_url = "https://chawanmushi.herokuapp.com/static/images/1beautful.jpg"
 )
 
 
