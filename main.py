@@ -66,8 +66,8 @@ def judge(userhand,bothand):
             #message += "俺の負けだよ…"
 
             message = ImageSendMessage(
-                original_comtent_url = "https://chawanmushi.herokuapp.com/static/images/1beautiful.jpg",
-                preview_image_url = "https://chawanmushi.herokuapp.com/static/images/1beautful.jpg"
+                original_comtent_url = "https://chawanmushi.herokuapp.com/static/images/2beautiful.jpeg",
+                preview_image_url = "https://chawanmushi.herokuapp.com/static/images/2beautful.jpeg"
 )
 
 
