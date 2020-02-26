@@ -46,7 +46,7 @@ def my_index(l, x):
         return l.index(x)
 
     else:
-       return -1
+        return -1
 
 
 hands = ["グー","チョキ","パー"]
