@@ -7,7 +7,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage,
+    ImageSendMessage, TemplateSendMessage, ButtonsTemplate,
+    MessageAction, DatetimePickerAction, PostbackEvent
 )
 
 
@@ -22,18 +24,6 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
-
-
-from linebot import LineBotApi
-from linebot.models import TextSendMessage
-from linebot.exceptions import LineBotApiError
-
-line_bot_api = LineBotApi('<channel access token>')
-
-try:
-    line_bot_api.reply_message('<reply_token>', TextSendMessage(text = 'Hello World!'))
-
-except LineBotApiError as e:
 
 
 
@@ -107,21 +97,41 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-
-
 def handle_message(event):
-    # message = event.message.text
-  
+    # message = event.message.text  
     # message = hands_to_int(event.message.text)
-
-   # message = select_bothand()
-
+    # message = select_bothand()
     #message = judge(hands_to_int(event.message.text), select_bothand())
 
+    buttons_template_message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+        thumbnail_image_url='https://example.com/image.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            DatetimePickerAction(
+                label='message',
+                data='hoge=1', 
+                mode='datetime'
+            ),
+        ]
+        )
+      )
     line_bot_api.reply_message(
         event.reply_token,
-        message
+        buttons_template_message 
     )
+
+@handler.add(PostbackEvent)
+def handler_PostbackEvent(event):
+
+    datetime = event.postback.params["datetime"]
+    line_bot_api.reply_message(
+    event.reply_token,
+    TextSendMessage(text=datetime)
+    )    
+
 
 
 if __name__ == "__main__":
