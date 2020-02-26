@@ -12,6 +12,7 @@ from linebot.models import (
 
 
 import os
+import random
 
 app = Flask(__name__)
 
@@ -22,7 +23,21 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-import random
+
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+from linebot.exceptions import LineBotApiError
+
+line_bot_api = LineBotApi('<channel access token>')
+
+try:
+    line_bot_api.reply_message('<reply_token>', TextSendMessage(text = 'Hello World!'))
+
+except LineBotApiError as e:
+
+
+
+
 
 
 def my_index(l, x):
@@ -31,7 +46,7 @@ def my_index(l, x):
         return l.index(x)
 
     else:
-        return -1
+       return -1
 
 
 hands = ["グー","チョキ","パー"]
@@ -47,7 +62,7 @@ def select_bothand():
     return random.randint(0,2)
 
 
-def judge(userhand,bothand):
+#def judge(userhand,bothand):
 
     if userhand == -1:
         message = "グー、チョキ、パーをカタカナで入力してちょ。"
@@ -103,7 +118,7 @@ def handle_message(event):
 
    # message = select_bothand()
 
-    message = judge(hands_to_int(event.message.text), select_bothand())
+    #message = judge(hands_to_int(event.message.text), select_bothand())
 
     line_bot_api.reply_message(
         event.reply_token,
